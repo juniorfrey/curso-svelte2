@@ -1,5 +1,5 @@
 <script>
-	import { numero } from './stores/store.js';
+	import { numero, hora } from './stores/store.js';
     
     export let id;
     let valor_numero;
@@ -14,6 +14,7 @@
 
 <h2>Contacto</h2>
 <p>{valor_numero}</p>
+<p>{$hora}</p>
 <button on:click={reset}>Reset</button>
 
 {#if id}

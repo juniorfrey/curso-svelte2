@@ -1,7 +1,7 @@
 <script>
     import { onDestroy } from 'svelte';
 
-	import { numero } from './stores/store.js';
+	import { numero, hora } from './stores/store.js';
  
 
     /*let valor_numero;
@@ -18,5 +18,6 @@
 </script>
 <h2>Home</h2>
 <p>{$numero}</p>
+<p>{$hora}</p>
 
 <button on:click={incrementar}>Sumar</button>
