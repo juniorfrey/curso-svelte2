@@ -1,4 +1,5 @@
 <script>
+	import Funciones from './Funciones.svelte';
 	import Datos from "./Datos.svelte";
 	import Button from "./Button.svelte";
 	import Inputs from "./Inputs.svelte";
@@ -6,6 +7,7 @@
 	import ClaseComponente from "./Datos.svelte";
 	import ArraysObjetos from "./ArraysObjetos.svelte";
 	import Eventos from "./Eventos.svelte";
+	import { setContext } from 'svelte';
 
 	export let name;
 	let lenguaje = 'Pronto estaremos con ustedes';
@@ -35,12 +37,18 @@
 		propertyInput.value = '1089547521'
 	}
 
+	const FunctionSetContent = (param) => {
+		console.log('SetContent', param);
+	}
+
+	setContext('funcion', FunctionSetContent);
+
 </script>
 
 
 
 <main>
-	<h1>Modo desarrollo {name}!</h1>
+	<!--<h1>Modo desarrollo {name}!</h1>-->
 	<!--<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />-->
 	<!-- 	<Datos  {...examplearray} />-->
 
@@ -58,8 +66,10 @@
 	<!--<h2>Array y objetos</h2>
 	<ArraysObjetos />-->
 
-	<h1>Eventos</h1>
-	<Eventos />
+	<!--<h1>Eventos</h1>
+	<Eventos />-->
+
+	<Funciones />
 	
 
 </main>
