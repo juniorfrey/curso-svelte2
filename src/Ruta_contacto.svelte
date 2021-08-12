@@ -1,23 +1,13 @@
 <script>
-	import { numero, valorTotal } from './stores/store.js';
-    
-    export let id;
-    let valor_numero;
-    numero.subscribe((value) => {
-        valor_numero = value
-    });
+	import { navigate } from 'svelte-routing';
+    import { user } from "./stores/store";
+    $: console.log("user in home", $user);
 
-    function reset(){
-        numero.set(0);
+    if(!$user){
+        navigate('/');
     }
+
 </script>
-
-<h2>Contacto</h2>
-<p>{valor_numero}</p>
-<button on:click={reset}>Reset</button>
-
-{#if id}
-    <p>Usuario: {id}</p>
-{/if}
-
-<p>Precio total: {$valorTotal}</p>
+<main>
+    <h1>Contacto</h1>
+</main>

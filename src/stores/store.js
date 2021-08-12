@@ -1,6 +1,6 @@
 import { writable,derived } from "svelte/store";
 
-function createNumber(){
+/*function createNumber(){
     const {subscribe, update, set } = writable([1]);
 
     return {
@@ -9,16 +9,28 @@ function createNumber(){
             n.push(n.length + 1)
             return n;
         }),
-        resetear:() => set([1])
+        //resetear:() => set([1])
+    }
+}*/
+
+
+function userStore(){
+    const {subscribe,  set } = writable(null);
+
+    return {
+        subscribe,
+        loginUser: (arg) => set(arg)
     }
 }
 
-export const numero = createNumber();
+export const user = userStore();
 
-export const valorTotal = derived(numero,$numero => {
+//export const numero = createNumber();
+
+/*export const valorTotal = derived(numero,$numero => {
     let total = $numero.reduce((a,b) => a + b);
     return total;
-})
+})*/
 
 /*export const hora = readable(null,set => {
     set(new Date());
