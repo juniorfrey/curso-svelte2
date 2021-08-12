@@ -1,10 +1,18 @@
 <script>
+	import Datos from "./Datos.svelte";
 	export let name;
+	let lenguaje = 'Pronto estaremos con ustedes';
+	let examplearray = {
+		nombre:`Fredys`,
+		apellido:`Fernandez`
+	}
+
 </script>
 
 <main>
 	<h1>Modo desarrollo {name}!</h1>
-	<p>Ya muy pronto nos mostraremos al mundo</p>
+	<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />
+	<!-- 	<Datos  {...examplearray} />-->
 	
 </main>
 
