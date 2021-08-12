@@ -1,9 +1,10 @@
 <script>
-	import Datos from "./Clase_Componente.svelte";
+	import Datos from "./Datos.svelte";
 	import Button from "./Button.svelte";
 	import Inputs from "./Inputs.svelte";
 	import Reactividad from "./Reactividad.svelte";
-import ClaseComponente from "./Clase_Componente.svelte";
+	import ClaseComponente from "./Datos.svelte";
+	import ArraysObjetos from "./ArraysObjetos.svelte";
 	export let name;
 	let lenguaje = 'Pronto estaremos con ustedes';
 	let examplearray = {
@@ -51,6 +52,9 @@ import ClaseComponente from "./Clase_Componente.svelte";
 
 	<h2>Reactividad</h2>
 	<Reactividad {...PropertyButton} {...propertyInput}/>
+
+	<h2>Array y objetos</h2>
+	<ArraysObjetos />
 	
 
 </main>
