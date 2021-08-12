@@ -9,6 +9,9 @@
 	import ArraysObjetos from "./ArraysObjetos.svelte";
 	import Eventos from "./Eventos.svelte";
 	import { setContext } from 'svelte';
+	import { Router, Route, Link, link } from 'svelte-routing';
+	import RutaHome from './Ruta_home.svelte';
+	import RutaContacto from './Ruta_contacto.svelte';
 
 	export let name;
 	let lenguaje = 'Pronto estaremos con ustedes';
@@ -48,6 +51,8 @@
 
 
 
+
+
 <main>
 	<!--<h1>Modo desarrollo {name}!</h1>-->
 	<!--<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />-->
@@ -72,7 +77,20 @@
 
 	<!--<Funciones />-->
 
-	<Bind />
+	<!--<Bind />-->
+
+	<Router>
+		<nav>
+			<Link to="/">Home</Link>
+			<Link to="/contacto">Contacto</Link>
+		</nav>
+		<div>
+			<Route path="/"  component={RutaHome}/>
+			<Route path="/contacto"  component={RutaContacto}/>
+			<Route path="/contacto/:id"  component={RutaContacto} let:params/>
+		</div>
+	</Router>
+
 	
 
 </main>
@@ -92,13 +110,6 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 

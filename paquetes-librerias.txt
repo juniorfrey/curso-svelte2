@@ -1,3 +1,6 @@
 paquetes a instalar tutorial de svelte
 
 npm i autoprefixer node-sass postcss postcss-load-config svelte-preprocess sass --save-dev
+
+svelte routing
+npm i --save install svelte-routing
