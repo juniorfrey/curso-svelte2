@@ -60,15 +60,17 @@
         <p>Cargando .......</p>
     {/each}-->
 
-    {#await promesa}
+    <!--{#await promesa}
         <p>... cargando</p>
     {:then value}
         {#each value as item }
             <h1>{item.title}</h1>
-            <p>{item.body}</p>
+            <p>{item.body
+            
+            }</p>
         {/each}
     {:catch error}
         <p>Error: {error.message}</p>
-    {/await}
+    {/await}-->
 
 </main>

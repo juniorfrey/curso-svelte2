@@ -5,6 +5,8 @@
 	import Reactividad from "./Reactividad.svelte";
 	import ClaseComponente from "./Datos.svelte";
 	import ArraysObjetos from "./ArraysObjetos.svelte";
+	import Eventos from "./Eventos.svelte";
+
 	export let name;
 	let lenguaje = 'Pronto estaremos con ustedes';
 	let examplearray = {
@@ -39,22 +41,25 @@
 
 <main>
 	<h1>Modo desarrollo {name}!</h1>
-	<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />
+	<!--<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />-->
 	<!-- 	<Datos  {...examplearray} />-->
 
 	<!-- Botones -->
-	<Button {disabled} {HandleClick} />
+	<!--<Button {disabled} {HandleClick} />-->
 
 	<!-- Inputs -->
-	<Inputs {...propertyInput}/>
+	<!--<Inputs {...propertyInput}/>-->
 	<!--{console.log(propertyInput)}-->
 	<!--{@debug propertyInput}-->
 
-	<h2>Reactividad</h2>
-	<Reactividad {...PropertyButton} {...propertyInput}/>
+	<!--<h2>Reactividad</h2>
+	<Reactividad {...PropertyButton} {...propertyInput}/>-->
 
-	<h2>Array y objetos</h2>
-	<ArraysObjetos />
+	<!--<h2>Array y objetos</h2>
+	<ArraysObjetos />-->
+
+	<h1>Eventos</h1>
+	<Eventos />
 	
 
 </main>
