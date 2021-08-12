@@ -1,4 +1,5 @@
 <script>
+	import Bind from './Bind.svelte';
 	import Funciones from './Funciones.svelte';
 	import Datos from "./Datos.svelte";
 	import Button from "./Button.svelte";
@@ -69,7 +70,9 @@
 	<!--<h1>Eventos</h1>
 	<Eventos />-->
 
-	<Funciones />
+	<!--<Funciones />-->
+
+	<Bind />
 	
 
 </main>
