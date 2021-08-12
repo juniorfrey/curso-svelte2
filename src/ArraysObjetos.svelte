@@ -1,16 +1,19 @@
 <script>
     let numero = [1,2,3,4];
-    const agregarNumero = () => {
-       let arrayNuevo = [...numero, 5];
+    
+    function agregarNumero () {
+       numero = [...numero, numero.length + 1];
     }
+
+    $: suma = numero.reduce((a,b) => a + b, 0)
 
 </script>
 
 <main>
     <p>
-        {numero.join(` + `)}
+        {numero.join(` + `)} = {suma}
     </p>
-    <button on:click={agregarNumero}>
+    <button type="button" on:click={agregarNumero}>
         Añadir numero
     </button>
 </main>
