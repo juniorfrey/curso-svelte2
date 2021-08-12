@@ -1,14 +1,70 @@
 <script>
+	import Datos from "./Clase_Componente.svelte";
+	import Button from "./Button.svelte";
+	import Inputs from "./Inputs.svelte";
+	import Reactividad from "./Reactividad.svelte";
+import ClaseComponente from "./Clase_Componente.svelte";
 	export let name;
+	let lenguaje = 'Pronto estaremos con ustedes';
+	let examplearray = {
+		nombre:`Fredys`,
+		apellido:`Fernandez`
+	}
+
+	let disabled = true;
+	let propertyInput = {
+		placeholder : `Inputs`,
+		type : `text`,
+		className : `form`,
+		require : `required`,
+		value:''
+	};
+
+	let PropertyButton = {
+		nameButton:`Reactividad`,
+		type:`button`
+	}
+	
+
+	// Funciones
+	const HandleClick = () => {
+		name = 'Desarrollador';
+		propertyInput.value = '1089547521'
+	}
+
 </script>
+
+
 
 <main>
 	<h1>Modo desarrollo {name}!</h1>
-	<p>Ya muy pronto nos mostraremos al mundo</p>
+	<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />
+	<!-- 	<Datos  {...examplearray} />-->
+
+	<!-- Botones -->
+	<Button {disabled} {HandleClick} />
+
+	<!-- Inputs -->
+	<Inputs {...propertyInput}/>
+	<!--{console.log(propertyInput)}-->
+	<!--{@debug propertyInput}-->
+
+	<h2>Reactividad</h2>
+	<Reactividad {...PropertyButton} {...propertyInput}/>
 	
+
 </main>
 
 <style>
+
+	:global(input){
+		border-radius: 20px;
+		background-color: burlywood;
+		padding: 3px 10px 3px 10px;
+		box-sizing: border-box;
+		outline: none;
+	}
+
 	main {
 		text-align: center;
 		padding: 1em;
@@ -22,6 +78,7 @@
 		font-size: 4em;
 		font-weight: 100;
 	}
+
 
 	@media (min-width: 640px) {
 		main {
