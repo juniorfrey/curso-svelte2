@@ -1,8 +1,9 @@
 <script>
-
 	import Datos from "./Clase_Componente.svelte";
 	import Button from "./Button.svelte";
 	import Inputs from "./Inputs.svelte";
+	import Reactividad from "./Reactividad.svelte";
+import ClaseComponente from "./Clase_Componente.svelte";
 	export let name;
 	let lenguaje = 'Pronto estaremos con ustedes';
 	let examplearray = {
@@ -18,6 +19,11 @@
 		require : `required`,
 		value:''
 	};
+
+	let PropertyButton = {
+		nameButton:`Reactividad`,
+		type:`button`
+	}
 	
 
 	// Funciones
@@ -36,13 +42,15 @@
 	<!-- 	<Datos  {...examplearray} />-->
 
 	<!-- Botones -->
-	<Button {disabled} {HandleClick}/>
+	<Button {disabled} {HandleClick} />
 
 	<!-- Inputs -->
 	<Inputs {...propertyInput}/>
 	<!--{console.log(propertyInput)}-->
 	<!--{@debug propertyInput}-->
 
+	<h2>Reactividad</h2>
+	<Reactividad {...PropertyButton} {...propertyInput}/>
 	
 
 </main>
