@@ -15,15 +15,24 @@ import { writable,derived } from "svelte/store";
 
 
 function userStore(){
-    const {subscribe,  set } = writable(null);
+    const {subscribe,  set } = writable(getStorageUser());
 
     return {
         subscribe,
-        loginUser: (arg) => set(arg)
+        loginUser: (arg) => set(arg),
+        logoutUser : () => set(null)
     }
 }
 
 export const user = userStore();
+
+export function setStorageUser(user){
+    localStorage.setItem('user', JSON.stringify(user));
+}
+
+function getStorageUser(){
+    return localStorage.getItem('user') ? JSON.parse(localStorage.getItem('')) : null
+}
 
 //export const numero = createNumber();
 

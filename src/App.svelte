@@ -14,6 +14,9 @@
 	import RutaContacto from './Ruta_contacto.svelte';
 	import Login from './Login.svelte';
 	import Logout from './Logout.svelte';
+	import About from './About.svelte';
+	import { user } from './stores/store';
+	
 
 	export let name;
 	let lenguaje = 'Pronto estaremos con ustedes';
@@ -84,14 +87,21 @@
 	<Router>
 		<nav>
 			<Link to="/">Home</Link>
-			<Link to="/contacto">Contacto</Link>
-			<Link to="/login">Login</Link>
-			<Link to="/logout">logout</Link>
+			
+			{#if $user}
+				<Link to="/contacto">Contacto</Link>
+				<Link to="/about">About</Link>
+				<Link to="/logout">logout</Link>
+			{:else}
+				<Link to="/login">Login</Link>
+			{/if}
+			
 		</nav>
 		<div>
 			<Route path="/"  component={RutaHome}/>
 			<Route path="/contacto"  component={RutaContacto}/>
 			<Route path="/contacto/:id"  component={RutaContacto} let:params/>
+			<Route path="/about"  component={About} />
 			<Route path="/login"  component={Login} />
 			<Route path="/logout"  component={Logout} />
 		</div>

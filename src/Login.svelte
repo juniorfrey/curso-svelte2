@@ -1,7 +1,10 @@
 <script>
-    import { user } from "./stores/store";
+    import { user, setStorageUser } from "./stores/store";
     import { navigate } from 'svelte-routing';
 
+    /*if(user){
+        navigate('/')
+    }*/
 
     let txtuser = "";
     let txtpass = "";
@@ -14,7 +17,8 @@
                 token:1234
             }
             user.loginUser(userRegistrado);
-            navigate('/contacto')
+            setStorageUser(userRegistrado)
+            navigate('/about')
         }, 1000);
         
     }
