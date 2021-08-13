@@ -1,9 +1,24 @@
 <script>
-	import Datos from "./Clase_Componente.svelte";
+	import Bind from './Bind.svelte';
+	import Funciones from './Funciones.svelte';
+	import Datos from "./Datos.svelte";
 	import Button from "./Button.svelte";
 	import Inputs from "./Inputs.svelte";
 	import Reactividad from "./Reactividad.svelte";
-import ClaseComponente from "./Clase_Componente.svelte";
+	import ClaseComponente from "./Datos.svelte";
+	import ArraysObjetos from "./ArraysObjetos.svelte";
+	import Eventos from "./Eventos.svelte";
+	import { setContext } from 'svelte';
+	import { Router, Route, Link, link } from 'svelte-routing';
+	import RutaHome from './Ruta_home.svelte';
+	import RutaContacto from './Ruta_contacto.svelte';
+	import Login from './Login.svelte';
+	import Logout from './Logout.svelte';
+	import About from './About.svelte';
+	import { user } from './stores/store';
+	import Slot from './Slot.svelte';
+	
+
 	export let name;
 	let lenguaje = 'Pronto estaremos con ustedes';
 	let examplearray = {
@@ -32,25 +47,69 @@ import ClaseComponente from "./Clase_Componente.svelte";
 		propertyInput.value = '1089547521'
 	}
 
+	const FunctionSetContent = (param) => {
+		console.log('SetContent', param);
+	}
+
+	setContext('funcion', FunctionSetContent);
+
 </script>
 
 
 
+
+
 <main>
-	<h1>Modo desarrollo {name}!</h1>
-	<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />
+	<!--<h1>Modo desarrollo {name}!</h1>-->
+	<!--<Datos  lenguaje={lenguaje} nombre={examplearray.nombre} apellido={examplearray.apellido} />-->
 	<!-- 	<Datos  {...examplearray} />-->
 
 	<!-- Botones -->
-	<Button {disabled} {HandleClick} />
+	<!--<Button {disabled} {HandleClick} />-->
 
 	<!-- Inputs -->
-	<Inputs {...propertyInput}/>
+	<!--<Inputs {...propertyInput}/>-->
 	<!--{console.log(propertyInput)}-->
 	<!--{@debug propertyInput}-->
 
-	<h2>Reactividad</h2>
-	<Reactividad {...PropertyButton} {...propertyInput}/>
+	<!--<h2>Reactividad</h2>
+	<Reactividad {...PropertyButton} {...propertyInput}/>-->
+
+	<!--<h2>Array y objetos</h2>
+	<ArraysObjetos />-->
+
+	<!--<h1>Eventos</h1>
+	<Eventos />-->
+
+	<!--<Funciones />-->
+
+	<!--<Bind />-->
+
+	<Router>
+		<nav>
+			<Link to="/">Home</Link>
+			
+			{#if $user}
+				<Link to="/contacto">Contacto</Link>
+				<Link to="/about">About</Link>
+				<Link to="/logout">logout</Link>
+				<Link to="/slot">Slot</Link>
+			{:else}
+				<Link to="/login">Login</Link>
+			{/if}
+			
+		</nav>
+		<div>
+			<Route path="/"  component={RutaHome}/>
+			<Route path="/contacto"  component={RutaContacto}/>
+			<Route path="/contacto/:id"  component={RutaContacto} let:params/>
+			<Route path="/about"  component={About} />
+			<Route path="/login"  component={Login} />
+			<Route path="/logout"  component={Logout} />
+			<Route path="/slot"  component={Slot} />
+		</div>
+	</Router>
+
 	
 
 </main>
@@ -66,17 +125,10 @@ import ClaseComponente from "./Clase_Componente.svelte";
 	}
 
 	main {
-		text-align: center;
+		text-align: left;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 
