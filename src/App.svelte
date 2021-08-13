@@ -16,6 +16,7 @@
 	import Logout from './Logout.svelte';
 	import About from './About.svelte';
 	import { user } from './stores/store';
+	import Slot from './Slot.svelte';
 	
 
 	export let name;
@@ -92,6 +93,7 @@
 				<Link to="/contacto">Contacto</Link>
 				<Link to="/about">About</Link>
 				<Link to="/logout">logout</Link>
+				<Link to="/slot">Slot</Link>
 			{:else}
 				<Link to="/login">Login</Link>
 			{/if}
@@ -104,6 +106,7 @@
 			<Route path="/about"  component={About} />
 			<Route path="/login"  component={Login} />
 			<Route path="/logout"  component={Logout} />
+			<Route path="/slot"  component={Slot} />
 		</div>
 	</Router>
 
